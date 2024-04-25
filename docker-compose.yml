@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: ruby-romania-postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    command: "postgres -c 'max_connections=500'"
+    environment:
+      POSTGRES_DB: ruby_romania
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data: {}
